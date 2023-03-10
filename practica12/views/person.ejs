@@ -17,8 +17,10 @@
     <header>
         Hola desde el EJS
     </header>
+    <!-- Uso de operador ternario para determinar un par o impar-->
     <h1>El número <%= ID %> es: <%= ID % 2 == 0 ? 'PAR' : 'IMPAR'%></h1>
     <ul>
+        <!-- Implementación de un ciclo for para imprimir listas-->
         <% for (let i=1; i<=ID;i++){ %>
             <li><%= i %></li>
         <% } %>
