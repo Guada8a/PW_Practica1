@@ -22,7 +22,20 @@ app.get('/api', function (req, res) {
 
 //tercera ruta (/api/person/:id) ,regresa un objeto JSON
 app.get('/person/:id', function (req, res) {
+    //Retornar una funcion
     res.render('person', { ID: req.params.id});
+
 });
 
+//Array de Personas
+let data = [
+    { id: 1, nombre: "Hugo", apellido: "Estrada Ramírez", edad: 19 },
+    { id: 2, nombre: "Estela", apellido: "Pérez Suárez", edad: 18 },
+    { id: 3, nombre: "Sabrina", apellido: "Contreras Morales", edad: 17 },
+]; //
+
+//Enviar un arreglo de personas
+app.get('/personas', function (req, res) {
+    res.render('personas', { personas: data });
+});
 app.listen(port); //levantar el server y ponerlo a escuchar

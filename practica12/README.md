@@ -1,6 +1,6 @@
-# Práctica 12: View Engines
+# Práctica 13: Practicando con EJS
 
-![Imagen Representativa](./img/proto.png)
+![Imagen Representativa](https://images.unsplash.com/photo-1678379975630-bd7f527317d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80)
 
 ## Información Previa
 <p align="justify">
