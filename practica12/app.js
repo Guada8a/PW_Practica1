@@ -1,6 +1,6 @@
 var express = require('express'); // importamos la dependencia
 var app = express(); //declaramos una App de Express
-var port = process.env.PORT || 3006; //setteamos el puerto para que escuche el servidor   x
+var port = process.env.PORT || 3000; //setteamos el puerto para que escuche el servidor   x
 app.use('/assets', express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs'); //setteamos el motor de plantillas
