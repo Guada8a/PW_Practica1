@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person</title>
+  <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">    
+  <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.css">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>   
+  <!-- Código parte 1-->
+  <!--   
+    <h1>Person: <%= //ID %></h1>
+    <h2>Query string value: <%= //Qstr%></h2>
+    
+  -->
+  <!-- Código parte 2-->
+  <h1 style="color:#a83d3d"><b>Person Name: <%= ID %></b></h1>
+  
+  <%
+  //Arreglo de mensajes
+  const msgValues = {
+    'bienvenido': 'Bienvenido',
+    'hola': 'Hola',
+    'adios': 'Adiós'
+  }
+  //Validación de mensaje a mostrar
+  MESSAGE = MESSAGE.toLowerCase();
+  switch (MESSAGE) { 
+    case 'hola' : %>
+      <h2>Mensaje: <%= msgValues[MESSAGE] %></h2>
+    <% break; 
+    case 'bienvenido' : %>
+      <h2>Mensaje: <%= msgValues[MESSAGE] %></h2>
+    <% break; 
+    case 'adios' : %>
+      <h2>Mensaje: <%= msgValues[MESSAGE] %></h2>
+    <% break; 
+    default:%>
+    <h2>Mensaje inválido</h2>
+    <% break; 
+  }
+  %>
+  
+  <%
+  //Validación de times, debe ser un número entero
+  if(Number(TIMES) % 1 == 0){
+  %>
+    <ol>
+    <% //Ciclo para mostrar mediante un listado los mensajes
+    for(var i = 1; i <= Number(TIMES); i++) {%>
+        <li value="<%= i %>" ><h4><%= `${msgValues[MESSAGE]} ${ID}`%> </h4></li>
+    <% } %>
+    </ol>
+  <%}else{%>
+    <h4>El query <b>TIMES</b> debe ser un número entero</h4>
+  <%}%>
+</body>
+
+</html>
