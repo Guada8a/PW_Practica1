@@ -1,0 +1,20 @@
+{
+  "name": "pw_practicas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guada8a/PW_Practicas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guada8a/PW_Practicas/issues"
+  },
+  "homepage": "https://github.com/Guada8a/PW_Practicas#readme"
+}
