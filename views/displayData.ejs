@@ -8,9 +8,15 @@
     <title>Respuesta</title>
 </head>
 <body>
-    <h2>Nombre: <%= nombre %></h2>
-    <h2>Edad: <%= edad %></h2>
-    <h2>Tipo de Sangre: <%= tipoSangre %></h2>
-    <h2>NSS: <%= nss %> </h2>
+    <header><h1>Respuesta</h1></header>
+    <div class="form-group" style="width: 40%; margin-left: 3%;">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">Datos</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Nombre: <%= nombre %></a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Edad: <%= edad %></a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Tipo de Sangre: <%= tipoSangre %></a>
+            <a href="#" class="list-group-item list-group-item-action disabled">NSS: <%= nss %></a>
+        </div>
+    </div>
 </body>
 </html>
