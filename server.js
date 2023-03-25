@@ -3,6 +3,7 @@ let app = express(); //Instancia de express
 let PORT = process.env.PORT || 3000; //Definición de puerto de escucha
 app.use('/assets', express.static(__dirname + '/public')); //contenido estático
 
+// * NOTA: La siguiente línea es para indicar que se va a Parsear las peticiones con URL Encoded
 app.use(express.urlencoded({ extended: false }));
 // * Agregar la siguiente línea para usar ejs
 app.set('view engine', 'ejs');

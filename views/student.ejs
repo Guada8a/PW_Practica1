@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-    
+    <!-- Formulario que agrega estudiantes-->
     <form action="/addStudent" method="POST" id="formBoots">
         <fieldset>
             <legend><h1>Agregar Estudiante</h1></legend>
@@ -28,7 +28,17 @@
             </div>
             <div class="form-group">
                 <label for="tipoSangre">Tipo de Sangre:</label>
-                <input type="text" class="form-control" name="tipoSangre" id="tipoSangre">
+                <select class="form-select" aria-label="Default select example" name="tipoSangre" id="tipoSangre">
+                    <option selected>Selecciona una opción</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                </select>
             </div>
     
             <input type="submit" class="btn btn-primary" value="Submit">
@@ -36,3 +46,7 @@
     </form>
 </body>
 </html>
+<!-- NOTA: Para esta práctica decidí modificar varias cosas del html, esto para que tuviera mejores validaciones
+    Sustituí el campo de tipo de sangre por un select, para que el usuario no pueda ingresar cualquier cosa
+    
+-->
