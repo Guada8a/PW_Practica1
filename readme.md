@@ -1,4 +1,5 @@
 # Práctica 15: Peticiones por POST
+
 !['Unsplash'](https://images.unsplash.com/photo-1589149098258-3e9102cd63d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=739&q=80)
 <p align="center"><h2 align="center">POST REQUESTS</h2></p>
 
@@ -10,8 +11,11 @@ objetivo, instalaremos el paquete “bodyparser” desde la línea de comando
 </p>
 
 ## Vistazos de ejecución
-### _Menú Principal_
-![Uno](./img/main.png)
-### _Respuesta_
-![Ams](./img/ans.png)
 
+### _Menú Principal_
+
+![Uno](./img/main.png)
+
+### _Respuesta_
+
+![Ams](./img/ans.png)
