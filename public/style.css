@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif !important;
+}
+h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #333;
+}
+p{
+    color: rgb(42, 90, 153) !important;
+}
+header{
+    padding: 10px !important;   
+}
+
+header h1{
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+li{
+    list-style: decimal !important;
+    padding: 5px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+li h4{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #333;
+}
+form{
+    margin-left: 4%;
+}
+.form-control{
+    width: 20%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+}
+input[type="submit"]{
+    top: 1rem;
+    width: 10%;
+    border-radius: 3rem;
+    color: #333;
+    background-color: white;
+}
+
+#tipoSangre{
+    width: 20%;
+    padding: 0.5rem;
+}
+
+.list-group a{
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #fff;
+}
