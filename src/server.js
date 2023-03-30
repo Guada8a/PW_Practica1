@@ -5,7 +5,6 @@ let app = express();
 //App que hace la función de servidor
 let personsRoute = require('./routes/person');
 let studentRoute = require('./routes/student');
-console.log(studentRoute);
 //Incluimos el router de person
 
 app.use(express.json()); //Para poder parsear JSON (application/json

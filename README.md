@@ -1,4 +1,4 @@
-# Práctica 16: Router y Postman
+# Práctica 17: Post Requests + JSON
 
 ![Unsplash](https://images.unsplash.com/photo-1679678691005-3815eb29bc61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80)
 
