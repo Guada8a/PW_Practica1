@@ -63,3 +63,7 @@ input[type="submit"]{
     font-weight: bold;
     background-color: #fff;
 }
+
+.form-group{
+    margin-left: 10rem !important;
+}

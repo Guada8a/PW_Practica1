@@ -7,13 +7,19 @@
   <title>Add Students</title>
   <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">    
   <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.css">
-  <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Formulario que agrega estudiantes-->
     <form action="/addStudent" method="POST" id="formBoots">
         <fieldset>
-            <legend><h1>Agregar Estudiante</h1></legend>
+            <legend><h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" id="back">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg>
+                Agregar Estudiante
+            </h1></legend>
             <div class="form-group">
                 <label for="nss">NSS:</label>
                 <input type="text" class="form-control" name="nss" id="nss">
@@ -45,6 +51,14 @@
         </fieldset>
     </form>
 </body>
+<script>
+    //Función que regresa al menú principal
+    $(document).ready(function(){
+        $("#back").click(function(){
+            window.location.href = "/";
+        });
+    });
+</script>
 </html>
 <!-- NOTA: Para esta práctica decidí modificar varias cosas del html, esto para que tuviera mejores validaciones
     Sustituí el campo de tipo de sangre por un select, para que el usuario no pueda ingresar cualquier cosa

@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.min.css">    
-    <link rel="stylesheet" href="https://bootswatch.com/5/materia/bootstrap.css">
-    <link rel="stylesheet" href="/assets/style.css" type="text/css">
-    <meta charset="UTF-8">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/materia/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/materia/bootstrap.css"
+    />
+    <link rel="stylesheet" href="/assets/style.css" type="text/css" />
+    <meta charset="UTF-8" />
     <title>Respuesta</title>
 </head>
 <body>
@@ -14,20 +20,32 @@
                 <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
             </svg>
             Respuesta
-        </h1></header>
-    <div class="form-group" style="width: 40%; margin-left: 3%;">
+        </h1>
+    </header>
+    <div class="form-group" style="width: 40%; margin-left: 3%">
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">Datos</a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Nombre: <%= nombre %></a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Edad: <%= edad %></a>
-            <a href="#" class="list-group-item list-group-item-action disabled">Tipo de Sangre: <%= tipoSangre === "Selecciona una opción" ? "" : tipoSangre %></a>
-            <a href="#" class="list-group-item list-group-item-action disabled">NSS: <%= nss %></a>
+            <a href="#" class="list-group-item list-group-item-action active">
+                Datos
+            </a>
+            <a href="#" class="list-group-item list-group-item-action disabled">
+                Nombre: <%= nombre %>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action disabled">
+                Edad: <%= edad %>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action disabled">
+                Tipo de Sangre: <%= tipoSangre === "Selecciona una opción" ? "" : tipoSangre %>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action disabled">
+                NSS: <%= nss %>
+            </a>
         </div>
     </div>
 </body>
 <script>
-    document.getElementById("back").addEventListener("click", function(){
+    document.getElementById("back").addEventListener("click", function () {
         window.location.href = "/student";
     });
+    
 </script>
 </html>
