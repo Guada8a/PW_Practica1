@@ -19,6 +19,6 @@ app.get('/', (req, res) => {
 app.use(express.json());
 app.use('/api', userRoutes);
 
-mongoose.connect(MONGODB_URI).then(() => { console.log('Connected to MongoDB') }).catch((err) => { console.log(err) });
+mongoose.connect(MONGODB_URI).then(() => { console.log(`Connected to MongoDB: Welcome ${process.env.MONGODB_DB}`) }).catch((err) => { console.log(err) });
 
 app.listen(port, () => { console.log(`Example app listening at http://localhost:${port}`) });
