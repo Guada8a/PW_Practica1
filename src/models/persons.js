@@ -1,7 +1,7 @@
 //Schema person for mongoose
 const mongoose = require('mongoose');
 
-//Crear schema de mongoose
+//Crear schema de mongoose basado en el modelo de personas
 let personSchema = new mongoose.Schema({
     nombre: String,
     edad: Number,
@@ -9,5 +9,5 @@ let personSchema = new mongoose.Schema({
     nss: String
 });
 
-//Exportar el modelo
+//Exportar el modulo
 module.exports = mongoose.model('Persons', personSchema);
