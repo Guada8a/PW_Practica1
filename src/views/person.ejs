@@ -31,16 +31,26 @@
                 </tr>
             </thead>
             <tbody>
-                <% for (let i = 0; i < Persons.length; i++) { %>
+                <%if (Persons.length == 0) { %>
+                <tr>
+                    <td colspan="6" style="text-align: center;">
+                        <h5>No hay registros</h5>
+                    </td>
+                </tr>
+                <% }else{ 
+                    for (let i = 0; i < Persons.length; i++) { %>
                 <tr>
                     <td><%= Persons[i].nss %></td>
                     <td><%= Persons[i].nombre %></td>
                     <td><%= Persons[i].edad %></td>
                     <td><%= Persons[i].tipoSangre %></td>
-                    <td><a href="">Delete</a></td>
-                    <td><a href="">Update</a></td>
+                    <!-- Envie el array de Personas como un nuevo atributo para manipularlo en la función-->
+                    <td><a href="#" data-person="<%= JSON.stringify(Persons[i]) %>" onclick="borrarModal(event)">Delete</a></td>
+                    <td><a href="./updatePerson/<%=Persons[i]._id%>">Update</a></td>
                 </tr>
-                <% } %>
+                <% } 
+                }
+                %>
             </tbody>
             <tfoot>
                 <tr>
@@ -54,5 +64,71 @@
             <a href="./addPerson" class="btn btn-primary">Agregar</a>
         </footer>
     </main>
+    <script type="text/javascript">
+        function borrarModal(event) {
+            event.preventDefault();
+
+            // Obtener la información de la persona desde el atributo data-person
+            const personData = JSON.parse(event.target.getAttribute('data-person'));
+
+            // Obtener los elementos HTML que queremos modificar en la modal
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+
+            // Actualizar los elementos HTML con la información de la persona
+            modalTitle.textContent = 'Eliminar persona';
+            modalBody.innerHTML = `
+                <p>¿Está seguro que desea eliminar a la siguiente persona?</p>
+                <pre><code>
+                    ${JSON.stringify(personData, null, 3)}
+                </code></pre>
+                <div align="center">
+                    <input type="button" data-person="${ personData._id }" onclick="borrarPersona(event)" id="btnEliminar" class="btn btn-danger" value="Eliminar">
+                    <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar">
+                </div>
+            `;
+
+            // Mostrar la modal
+            const modal = new bootstrap.Modal(document.getElementById('borrarModal'));
+            modal.show();
+        }
+        function borrarPersona(event){
+            event.preventDefault();
+            // Obtener la información de la persona desde el atributo data-person
+            const personData = event.target.getAttribute('data-person');
+            // Abrir modal con spinner de eliminar y confirmación que dure 4 segundos
+            const modalBody = document.getElementById('modal-body');
+
+            modalBody.innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h2>Eliminando persona...</h2>
+                </div>
+            `;
+            setTimeout(() => {
+                modalBody.innerHTML = `
+                    <div class="alert alert-success" role="alert">
+                        Persona eliminada correctamente
+                    </div>
+                `;
+                // Enviar el id a la ruta de eliminar
+                window.location.href = `./deletePerson/${personData}`;
+            }, 1000);
+        }
+    </script>
+    <!-- Modal -->
+    <div class="modal" id="borrarModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5><b class="modal-title" id="modal-title"></b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
