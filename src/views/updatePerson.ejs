@@ -34,6 +34,10 @@
             <div class="row" id="map_section">
                 <div class="col-5">
                     <div class="input-group input-group-sm mb-3 col-auto">
+                        <label for="nss">ID:</label>
+                        <input type="text" class="form-control-plaintext form-control-sm" name="idF" id="idF" required maxlength="11" value="<%= person._id %>" readonly>
+                    </div>
+                    <div class="input-group input-group-sm mb-3 col-auto">
                         <label for="nss">NSS:</label>
                         <input type="text" class="form-control form-control-sm" name="nss" id="nss" required maxlength="11" value="<%= person.nss %>">
                     </div>
@@ -61,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Enviar Datos" class="btn btn-primary">
+            <input type="submit" value="Enviar Datos" class="btn btn-outline-success" />
         </form>
     </main>
     

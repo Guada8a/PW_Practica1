@@ -22,6 +22,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>#</th>
                     <th>NSS</th>
                     <th>Nombre</th>
                     <th>Tipo de Sangre</th>
@@ -38,30 +39,32 @@
                     </td>
                 </tr>
                 <% }else{ 
-                    for (let i = 0; i < Persons.length; i++) { %>
+                    Object.keys(Persons).forEach(function(prop){ %>
                 <tr>
-                    <td><%= Persons[i].nss %></td>
-                    <td><%= Persons[i].nombre %></td>
-                    <td><%= Persons[i].edad %></td>
-                    <td><%= Persons[i].tipoSangre %></td>
+                    <td><%= parseInt(prop)+1 %></td>
+                    <td><%= Persons[prop].nss %></td>
+                    <td><%= Persons[prop].nombre %></td>
+                    <td><%= Persons[prop].edad %></td>
+                    <td><%= Persons[prop].tipoSangre %></td>
                     <!-- Envie el array de Personas como un nuevo atributo para manipularlo en la función-->
-                    <td><a href="#" data-person="<%= JSON.stringify(Persons[i]) %>" onclick="borrarModal(event)">Delete</a></td>
-                    <td><a href="./updatePerson/<%=Persons[i]._id%>">Update</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" href="#" data-person="<%= JSON.stringify(Persons[prop]) %>" onclick="borrarModal(event)">Delete</a></td>
+                    <td><a class="btn btn-outline-info btn-sm" href="./findById/<%=Persons[prop]._id%>">Update</a></td>
                 </tr>
-                <% } 
+                <% } );
                 }
                 %>
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" style="text-align: right;">
+                    <td colspan="7" style="text-align: right;">
                         <h5 class="float-md-end">Total de Registros: <b><%= Object.keys(Persons).length %></b></h5>
                     </td>
                 </tr>
             </tfoot>
         </table>
         <footer>
-            <a href="./addPerson" class="btn btn-primary">Agregar</a>
+            <a href="./addPerson" class="btn btn-outline-success">Agregar</a>
+            <a href="./addRandomPersons" class="btn btn-outline-dark">Agregar 10 Randoms</a>
         </footer>
     </main>
     <script type="text/javascript">
@@ -84,7 +87,7 @@
                 </code></pre>
                 <div align="center">
                     <input type="button" data-person="${ personData._id }" onclick="borrarPersona(event)" id="btnEliminar" class="btn btn-danger" value="Eliminar">
-                    <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Cancelar">
+                    <input type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal" value="Cancelar">
                 </div>
             `;
 
@@ -115,10 +118,11 @@
                 `;
                 // Enviar el id a la ruta de eliminar
                 window.location.href = `./deletePerson/${personData}`;
-            }, 1000);
+            }, 50);
         }
     </script>
     <!-- Modal -->
+    <!--- Esta modal se muestra al momento de eliminar a una persona-->
     <div class="modal" id="borrarModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">

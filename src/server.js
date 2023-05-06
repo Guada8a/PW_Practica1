@@ -14,7 +14,6 @@ app.set('view engine', 'ejs'); //Motor de plantillas
 app.use(express.urlencoded({ extended: false })); //Formularios
 //Usar Public Folder para archivos estaticos (css, js, img)
 app.use("/assets", express.static(__dirname + '/../public'));
-console.log(__dirname + '/../public');
 app.use(personsRoutes); //Rutas de personas
 
 //Conectar con la base de datos

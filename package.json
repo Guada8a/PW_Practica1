@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "dotenv": "^16.0.3",
+    "faker": "^6.6.6",
     "mongodb": "^5.3.0",
-    "mongoose": "^7.0.4"
+    "mongoose": "^7.0.4",
+    "rnameg": "^1.0.3"
   },
   "scripts": {
     "start": "nodemon src/index.js"
