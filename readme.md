@@ -24,3 +24,9 @@ nss: String
 
 !["Add"](./src/img/addPersons.png)
 *Agregar*: Interfaz para agregar nuevas personas a la colección
+
+!["Update"](./src/img/update.png)
+*Modificar*: Interfaz para editar los datos
+
+!["Delete"](./src/img/delete.png)
+*Eliminar*: Modal de eliminación
