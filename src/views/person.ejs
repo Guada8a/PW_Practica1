@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/styles.css">
@@ -19,52 +20,69 @@
             MongoDB: <small>Personas</small></h1>
     </header>
     <main>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>NSS</th>
-                    <th>Nombre</th>
-                    <th>Tipo de Sangre</th>
-                    <th>Edad</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <%if (Persons.length == 0) { %>
-                <tr>
-                    <td colspan="6" style="text-align: center;">
-                        <h5>No hay registros</h5>
-                    </td>
-                </tr>
-                <% }else{ 
-                    Object.keys(Persons).forEach(function(prop){ %>
-                <tr>
-                    <td><%= parseInt(prop)+1 %></td>
-                    <td><%= Persons[prop].nss %></td>
-                    <td><%= Persons[prop].nombre %></td>
-                    <td><%= Persons[prop].edad %></td>
-                    <td><%= Persons[prop].tipoSangre %></td>
-                    <!-- Envie el array de Personas como un nuevo atributo para manipularlo en la función-->
-                    <td><a class="btn btn-outline-danger btn-sm" href="#" data-person="<%= JSON.stringify(Persons[prop]) %>" onclick="borrarModal(event)">Delete</a></td>
-                    <td><a class="btn btn-outline-info btn-sm" href="./findById/<%=Persons[prop]._id%>">Update</a></td>
-                </tr>
-                <% } );
-                }
-                %>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="7" style="text-align: right;">
-                        <h5 class="float-md-end">Total de Registros: <b><%= Object.keys(Persons).length %></b></h5>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <div class="table-responsive">
+            <table class="table caption-top">
+                <caption>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="d-flex justify-content-start">
+                            <h5>Listado de Personas</h5>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <input class="form-control form-control-sm" type="search" placeholder="Buscar..." id="buscar" aria-label="default input example">
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a class="btn btn-outline-primary btn-sm" href="/gente"><i class="bi bi-arrow-clockwise"></i> Actualizar</a>
+                        </div>
+                    </div>
+                </caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>NSS</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Tipo de Sangre</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if (Persons.length == 0) { %>
+                    <tr>
+                        <td colspan="6" style="text-align: center;">
+                            <h5>No hay registros</h5>
+                        </td>
+                    </tr>
+                    <% }else{ 
+                        Object.keys(Persons).forEach(function(prop){ %>
+                    <tr>
+                        <td><b><i><%= parseInt(prop)+1 %></i></b></td>
+                        <td><%= Persons[prop].nss %></td>
+                        <td><b><%= Persons[prop].nombre %></b></td>
+                        <td><%= Persons[prop].edad %></td>
+                        <td><%= Persons[prop].tipoSangre %></td>
+                        <!-- Envie el array de Personas como un nuevo atributo para manipularlo en la función-->
+                        <td><a class="btn btn-outline-danger btn-sm" href="#" data-person="<%= JSON.stringify(Persons[prop]) %>" onclick="borrarModal(event)"><i class="bi bi-trash"></i> Delete</a></td>
+                        <td><a class="btn btn-outline-warning btn-sm" href="./findById/<%=Persons[prop]._id%>"><i class="bi bi-pencil-square"></i> Update</a></td>
+                    </tr>
+                    <% } );
+                    }
+                    %>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" style="text-align: right;">
+                            <h6 class="float-md-start">
+                                Ultima actualización: <b><%= new Date().toLocaleString() %></b>
+                            </h6>
+                            <h5 class="float-md-end">Total de Registros: <b><%= Object.keys(Persons).length %></b></h5>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
         <footer>
-            <a href="./addPerson" class="btn btn-outline-success">Agregar</a>
-            <a href="./addRandomPersons" class="btn btn-outline-dark">Agregar 10 Randoms</a>
+            <a href="./addPerson" class="btn btn-outline-success"><i class="bi bi-plus-circle"></i> Agregar</a>
+            <a href="./addRandomPersons" class="btn btn-outline-dark"><i class="bi bi-shuffle"></i> Agregar 10 Randoms</a>
         </footer>
     </main>
     <script type="text/javascript">
@@ -83,7 +101,7 @@
             modalBody.innerHTML = `
                 <p>¿Está seguro que desea eliminar a la siguiente persona?</p>
                 <pre><code>
-                    ${JSON.stringify(personData, null, 3)}
+                    ${JSON.stringify(personData, null, 1)}
                 </code></pre>
                 <div align="center">
                     <input type="button" data-person="${ personData._id }" onclick="borrarPersona(event)" id="btnEliminar" class="btn btn-danger" value="Eliminar">
@@ -120,6 +138,68 @@
                 window.location.href = `./deletePerson/${personData}`;
             }, 50);
         }
+        // Guardar referencia a la fila de "No se encontraron resultados"
+let noResultsRow;
+
+// Función para buscar personas
+document.getElementById('buscar').addEventListener('keyup', buscarPersonas);
+
+function buscarPersonas(event) {
+    // Obtener el valor del input
+    const valor = event.target.value.trim();
+
+    // Obtener todas las filas de la tabla
+    const filas = document.querySelectorAll('tbody tr');
+
+    // Si el campo de búsqueda está vacío, mostrar todas las filas y eliminar la fila de "No se encontraron resultados"
+    if (valor === '') {
+        filas.forEach(fila => {
+            fila.style.display = '';
+        });
+
+        if (noResultsRow) {
+            noResultsRow.remove();
+            noResultsRow = null;
+        }
+
+        return;
+    }
+
+    // Recorrer las filas
+    let encontrados = false;
+    filas.forEach(fila => {
+        // Obtener el contenido de la fila
+        const contenido = fila.textContent.toLowerCase();
+        // Verificar si el contenido de la fila contiene el valor del input
+        if (contenido.includes(valor.toLowerCase())) {
+            // Mostrar la fila
+            fila.style.display = '';
+            encontrados = true;
+        } else {
+            // Ocultar la fila
+            fila.style.display = 'none';
+        }
+    });
+
+    // Si no se encontraron resultados, crear una fila de "No se encontraron resultados"
+    if (!encontrados) {
+        if (!noResultsRow) {
+            const tbody = document.querySelector('tbody');
+            noResultsRow = document.createElement('tr');
+            const noResultsCell = document.createElement('td');
+            noResultsCell.setAttribute('colspan', '7');
+            noResultsCell.textContent = 'No se encontraron resultados';
+            noResultsRow.appendChild(noResultsCell);
+            tbody.appendChild(noResultsRow);
+        }
+    } else {
+        // Si se encontraron resultados y la fila de "No se encontraron resultados" existe, eliminarla
+        if (noResultsRow) {
+            noResultsRow.remove();
+            noResultsRow = null;
+        }
+    }
+}
     </script>
     <!-- Modal -->
     <!--- Esta modal se muestra al momento de eliminar a una persona-->

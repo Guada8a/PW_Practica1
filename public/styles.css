@@ -7,7 +7,7 @@
 
 body{
     font-family: 'Roboto', sans-serif !important;
-    background-color: #f5f5f5;
+    background-color: "white";
     width: 100%;
     margin: 0 auto;
 }
@@ -20,7 +20,7 @@ main {
 }
 
 header {
-    background-color: rgb(0, 104, 93);
+    background-color: rgb(30,48, 80);
     color: white;
     padding: 10px;
     display: flex;
@@ -48,8 +48,38 @@ a{
 }
 
 h3{
-    color: rgb(0,104,93) !important;
+    color: rgb(30, 48, 80) !important;
 }
-input[type="submit"]{
+input[type="submit"], input[type="search"]{
     width: 40%;
+}
+input.form-control-sm, select{
+    left: 10px;
+    width: 100%;
+}
+button{
+    width: 100%;
+}
+td{
+    vertical-align: middle;
+}
+td>a{
+    width: 100%;
+}
+th:first-child, th:last-child{
+    text-align: center;
+}
+pre{
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+tbody>tr>td:first-child{
+    text-align: center;
+}
+
+tr:not(tfoot>tr):hover{
+  background-color: rgb(30, 48, 80);
+  color: #fff !important;
 }
