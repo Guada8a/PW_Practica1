@@ -1,4 +1,4 @@
-# Práctica 21: Editar un documento a la colección de MongoDB
+# Práctica 22: Eliminar un documento a la colección de MongoDB
 
 !["Mongo"](https://www.openlogic.com/sites/default/files/image/2021-06/image-blog-openlogic-what-is-mongodb.png)
 *Imagen Ilustrativa*
@@ -9,7 +9,7 @@ En esta práctica, utilizaremos una parte del código de la práctica anterior y
 
 - Utilizaremos TODO el código de la práctica anterior y agregaremos 2 nuevos
 endpoints, uno por GET para mostrar el formulario donde se edita un nuevo
-documento y otro por POST para actualizar el documento en la colección
+documento y otro por POST para eliminar el documento en la colección
 
 ### Schema MongoDB: Persons
 
@@ -20,31 +20,13 @@ tipoSangre: String,
 nss: String
 ```
 
-# Práctica 21 (Versión P21.2)
+# Práctica 22 (Versión P21.3)
 
 En esta nueva versión se incorporan nuevas funcionalidades y refactorizaciones en el código:
 
-### Funcionalidades
-
-- Cambios en el funcionamiento de la ruta `update`
-- Funcionalidad para buscar datos en la tabla
-- Visibilidad de la `Última Actualización de Datos`
-- Nuevo botón: `Agregar Randoms`, agrega 10 personas a la database
-
 ### Características
 
-- Nuevos Estilos
-  - Implementación de Bootstrap 5
-  - Rediseño y refactorización en la interfaz
-  - Nuevo color en la etiqueta `pre` que se muestra en la modal de eliminar
-- Nuevos Iconos
-  - Implementación de iconos pertenecientes a Bootstrap 5
-  - Uso de `svg` para el ícono de MongoDb
-
-### Problemas Resueltos
-
-- Error que se encontraba en los headers de la tabla del archivo `person.ejs`
--Ajuste en el tiempo en el que se muestra la modal de eliminación
+- Nuevo Css
 
 # Vista Previa
 
