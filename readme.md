@@ -1,4 +1,4 @@
-# Práctica 22: Eliminar un documento a la colección de MongoDB
+# Práctica 23: Buscar un documento a la colección de MongoDB
 
 !["Mongo"](https://www.openlogic.com/sites/default/files/image/2021-06/image-blog-openlogic-what-is-mongodb.png)
 *Imagen Ilustrativa*
@@ -9,7 +9,7 @@ En esta práctica, utilizaremos una parte del código de la práctica anterior y
 
 - Utilizaremos TODO el código de la práctica anterior y agregaremos 2 nuevos
 endpoints, uno por GET para mostrar el formulario donde se edita un nuevo
-documento y otro por POST para eliminar el documento en la colección
+documento y otro por POST para buscar el documento en la colección
 
 ### Schema MongoDB: Persons
 
@@ -20,13 +20,14 @@ tipoSangre: String,
 nss: String
 ```
 
-# Práctica 22 (Versión P21.3)
+# Práctica 23 (Versión P21.4)
 
 En esta nueva versión se incorporan nuevas funcionalidades y refactorizaciones en el código:
 
 ### Características
 
-- Nuevo Css
+- Método Buscar refactorizado
+    - Usando rutas
 
 # Vista Previa
 

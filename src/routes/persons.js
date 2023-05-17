@@ -106,5 +106,10 @@ router.get('/deletePerson/:id', async (req, res) => {
     }
 });
 
-//Exportar el modulo
+//Buscar una persona
+router.post('/find', (req, res) => {
+    Person.find({ nombre: { $regex: req.body.criteria, $options: 'i' } }).then((Persons) => { res.render('person', { Persons }) }).catch((error) => { res.json({ message: error }) })
+});
+
+    //Exportar el modulo
 module.exports = router;

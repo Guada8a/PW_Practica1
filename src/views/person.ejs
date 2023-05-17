@@ -27,11 +27,12 @@
                         <div class="d-flex justify-content-start">
                             <h5>Listado de Personas</h5>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <input class="form-control form-control-sm" type="search" placeholder="Buscar..." id="buscar" aria-label="default input example">
-                        </div>
+                        <form action="/find" method="post" class="d-flex justify-content-center" id="formSearch">
+                            <input class="form-control form-control-sm" type="search" placeholder="Buscar..." id="criteria" name="criteria" aria-label="default input example" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2" style="height: 2rem; width: 4rem;"><i class="bi bi-search"></i></button>
+                        </form>
                         <div class="d-flex justify-content-end">
-                            <a class="btn btn-outline-primary btn-sm" href="/gente"><i class="bi bi-arrow-clockwise"></i> Actualizar</a>
+                            <a class="btn btn-outline-primary btn-sm" href="/gente" style="height: 2rem"><i class="bi bi-arrow-clockwise"></i> Actualizar</a>
                         </div>
                     </div>
                 </caption>
@@ -138,67 +139,7 @@
                 window.location.href = `./deletePerson/${personData}`;
             }, 50);
         }
-        // Guardar referencia a la fila de "No se encontraron resultados"
-        let noResultsRow;
-
-        // Función para buscar personas
-        document.getElementById('buscar').addEventListener('keyup', buscarPersonas);
-
-        function buscarPersonas(event) {
-            // Obtener el valor del input
-            const valor = event.target.value.trim();
         
-            // Obtener todas las filas de la tabla
-            const filas = document.querySelectorAll('tbody tr');
-        
-            // Si el campo de búsqueda está vacío, mostrar todas las filas y eliminar la fila de "No se encontraron resultados"
-            if (valor === '') {
-                filas.forEach(fila => {
-                    fila.style.display = '';
-                });
-            
-                if (noResultsRow) {
-                    noResultsRow.remove();
-                    noResultsRow = null;
-                }
-            
-                return;
-            }
-        
-            // Recorrer las filas
-            let encontrados = false;
-            filas.forEach(fila => {
-                // Obtener el contenido de la fila
-                const contenido = fila.textContent.toLowerCase();
-                // Verificar si el contenido de la fila contiene el valor del input
-                if (contenido.includes(valor.toLowerCase())) {
-                    // Mostrar la fila
-                    fila.style.display = '';
-                    encontrados = true;
-                } else
-                    // Ocultar la fila
-                    fila.style.display = 'none';
-            });
-            
-            // Si no se encontraron resultados, crear una fila de "No se encontraron resultados"
-            if (!encontrados)
-                if (!noResultsRow) {
-                    const tbody = document.querySelector('tbody');
-                    noResultsRow = document.createElement('tr');
-                    const noResultsCell = document.createElement('td');
-                    noResultsCell.setAttribute('colspan', '7');
-                    noResultsCell.textContent = 'No se encontraron resultados';
-                    noResultsRow.appendChild(noResultsCell);
-                    tbody.appendChild(noResultsRow);
-                }
-            else {
-                // Si se encontraron resultados y la fila de "No se encontraron resultados" existe, eliminarla
-                if (noResultsRow) {
-                    noResultsRow.remove();
-                    noResultsRow = null;
-                }
-            }
-        }
     </script>
     <!-- Modal -->
     <!--- Esta modal se muestra al momento de eliminar a una persona-->
